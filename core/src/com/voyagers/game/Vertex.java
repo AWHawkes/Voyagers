@@ -1,5 +1,7 @@
 package com.voyagers.game;
 
+import com.badlogic.gdx.graphics.Texture;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,8 @@ public class Vertex {
     public int x;
     public int y;
     public String contents = "";
-    public String image = "";
+    public Texture image;
+    public Player player;
 
     // contains data on what lines, vertices, and hexes are connected.
     // Also contains data on how they are oriented relatively
@@ -19,8 +22,16 @@ public class Vertex {
     //List vertices = new ArrayList<Vertex>();
     //List hexes = new ArrayList<Hex>();
 
+    /* positions for lines:
+    top: 0
+    top-right: 1
+    bottom-right: 2
+    bottom: 3
+    bottom-left: 4
+    top-left: 5
+            */
     Line lines[] = new Line[6];  // maybe I want 3? idk
-
+    //public Hex hex;
 
     public void create() {
         // loop that adds the empty elements to the array lists
@@ -46,11 +57,12 @@ public class Vertex {
     }
     */
 
+    /*  we don't need this anymore since we switched to using arrays
     // these return the identifier for what line/vertex/hex is attached to what position
     public Object getLine(int position){
         Object temp = get(lines,position);
         return temp;
     }
-
+*/
 
 }

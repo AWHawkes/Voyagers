@@ -1,5 +1,7 @@
 package com.voyagers.game;
 
+import com.badlogic.gdx.graphics.Texture;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +13,18 @@ public class Line {
     public int x;
     public int y;
     public String contents = "";
-    public String image = "";
-    public int orientation;
+    public Texture image;
+    public Player player;
+    public int orientation = 0;
+
+    /* line orientation:
+    #:    means:
+    0       horizontal line
+    1       vertical line
+    2       slant left
+    3       slant right
+
+     */
 
     // contains data on what lines, vertices, and hexes are connected.
     // Also contains data on how they are oriented relatively
@@ -21,7 +33,9 @@ public class Line {
    // List vertices = new ArrayList<Vertex>();
    // List hexes = new ArrayList<Hex>();
 
+    // position 0 is on the left/top, position 1 is on the right/bottom
     Vertex vertices[] = new Vertex[2];
+    // position 0, means that the hex is on top/left, position 1 means on bottom/right
     Hex hexes[] = new Hex[2];
 
 
@@ -49,6 +63,7 @@ public class Line {
         set(hexes,position, hex);
     }
 
+    /*  we don't need this anymore since we switched to using arrays
     // these return the identifier for what line/vertex/hex is attached to what position
 
     public Object getVertex(int position){
@@ -59,5 +74,5 @@ public class Line {
     public Object getHex(int position){
         Object temp = get(hexes,position);
         return temp;
-    }
+    } */
 }
